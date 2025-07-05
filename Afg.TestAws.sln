@@ -8,6 +8,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Afg.TestAws.Reciever", "Afg
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Afg.TestAws.Sender", "Afg.TestAws.Sender\src\Afg.TestAws.Sender\Afg.TestAws.Sender.csproj", "{FCF77D9F-40D1-4195-ABCD-F8B3636C20EE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Afg.TestAws.AspireConstants", "Afg.TestAws.AspireConstants\Afg.TestAws.AspireConstants.csproj", "{E13D746F-BE58-41A9-B2BE-43B95626BDED}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Afg.TestAws.LambdaDefaults", "Afg.TestAws.LambdaDefaults\Afg.TestAws.LambdaDefaults.csproj", "{0E7F56A9-F9E9-4118-AF15-339B4BFF404A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,5 +34,13 @@ Global
 		{FCF77D9F-40D1-4195-ABCD-F8B3636C20EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FCF77D9F-40D1-4195-ABCD-F8B3636C20EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FCF77D9F-40D1-4195-ABCD-F8B3636C20EE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E13D746F-BE58-41A9-B2BE-43B95626BDED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E13D746F-BE58-41A9-B2BE-43B95626BDED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E13D746F-BE58-41A9-B2BE-43B95626BDED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E13D746F-BE58-41A9-B2BE-43B95626BDED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0E7F56A9-F9E9-4118-AF15-339B4BFF404A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0E7F56A9-F9E9-4118-AF15-339B4BFF404A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0E7F56A9-F9E9-4118-AF15-339B4BFF404A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0E7F56A9-F9E9-4118-AF15-339B4BFF404A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

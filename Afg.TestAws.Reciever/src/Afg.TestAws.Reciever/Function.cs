@@ -1,5 +1,8 @@
+using Afg.TestAws.LambdaDefaults;
 using Amazon.Lambda.Core;
 using Amazon.Lambda.SQSEvents;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 
 
 // Assembly attribute to enable the Lambda function's JSON input to be converted into a .NET class.
@@ -16,6 +19,14 @@ public class Function
     /// </summary>
     public Function()
     {
+        var services = new ServiceCollection();
+        var config = new ConfigurationBuilder()
+            .AddEnvironmentVariables()
+            .Build();
+        
+        services.AddAspireLocalStack(config);
+        
+        var sp = services.BuildServiceProvider();
     }
 
 

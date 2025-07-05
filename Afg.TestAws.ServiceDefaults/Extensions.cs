@@ -1,5 +1,12 @@
+using Afg.TestAws.AspireConstants;
+using Amazon.Lambda;
+using Amazon.Runtime.SharedInterfaces;
+using Amazon.SimpleNotificationService;
+using Amazon.SQS;
+using LocalStack.Client.Extensions;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Diagnostics.HealthChecks;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Diagnostics.HealthChecks;
 using Microsoft.Extensions.Logging;
@@ -69,6 +76,31 @@ public static class Extensions
         builder.AddOpenTelemetryExporters();
 
         return builder;
+    }
+    
+    private static TBuilder AddAspireLocalStack<TBuilder>(this TBuilder builder)
+        where TBuilder : IHostApplicationBuilder
+    {
+        builder.Services.AddLocalStack(builder.Configuration)
+            .AddDefaultAwsOptions(builder.Configuration.GetAWSOptions());
+        
+        builder.Services.AddAwsService<IAmazonLambda>();
+        builder.Services.AddAwsService<IAmazonSQS>();
+        builder.Services.AddAwsService<IAmazonSimpleNotificationService>();
+
+        return builder;
+    }
+    
+    private static IServiceCollection AddAspireLocalStack(this IServiceCollection services, IConfiguration configuration)
+    {
+        services.AddLocalStack(configuration)
+            .AddDefaultAwsOptions(configuration.GetAWSOptions());
+        
+        services.AddAwsService<IAmazonLambda>();
+        services.AddAwsService<IAmazonSQS>();
+        services.AddAwsService<IAmazonSimpleNotificationService>();
+
+        return services;
     }
 
     private static TBuilder AddOpenTelemetryExporters<TBuilder>(this TBuilder builder)

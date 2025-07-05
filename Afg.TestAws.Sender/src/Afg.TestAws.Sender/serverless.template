@@ -38,16 +38,7 @@
     "AfgTestAwsSenderFunctionsGetGenerated": {
       "Type": "AWS::Serverless::Function",
       "Metadata": {
-        "Tool": "Amazon.Lambda.Annotations",
-        "SyncedEvents": [
-          "RootGet"
-        ],
-        "SyncedEventProperties": {
-          "RootGet": [
-            "Path",
-            "Method"
-          ]
-        }
+        "Tool": "Amazon.Lambda.Annotations"
       },
       "Properties": {
         "Runtime": "dotnet8",
@@ -59,15 +50,7 @@
         ],
         "PackageType": "Zip",
         "Handler": "Afg.TestAws.Sender::Afg.TestAws.Sender.Functions_Get_Generated::Get",
-        "Events": {
-          "RootGet": {
-            "Type": "Api",
-            "Properties": {
-              "Path": "/",
-              "Method": "GET"
-            }
-          }
-        }
+        "Events": {}
       }
     }
   },

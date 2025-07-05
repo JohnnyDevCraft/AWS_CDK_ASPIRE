@@ -1,4 +1,7 @@
+using Afg.TestAws.LambdaDefaults;
 using Amazon.Lambda.Annotations;
+using LocalStack.Client.Extensions;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Afg.TestAws.Sender;
@@ -20,6 +23,12 @@ public class Startup
         //// adding it to the dependency injection container.
         //var builder = new ConfigurationBuilder()
         //                    .AddJsonFile("appsettings.json", true);
+        
+        var configBuilder = new ConfigurationBuilder()
+            .AddEnvironmentVariables()
+            .Build();
+
+        services.AddAspireLocalStack(configBuilder);
 
         //// Add AWS Systems Manager as a potential provider for the configuration. This is 
         //// available with the Amazon.Extensions.Configuration.SystemsManager NuGet package.

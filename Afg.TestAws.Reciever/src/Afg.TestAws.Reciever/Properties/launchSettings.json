@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "Aspire_Receiver": {
+      "commandName": "Executable",
+      "executablePath": "dotnet",
+      "commandLineArgs": "exec --depsfile ./Afg.TestAws.Reciever.deps.json --runtimeconfig ./Afg.TestAws.Reciever.runtimeconfig.json $(HOME)/.dotnet/tools/.store/amazon.lambda.testtool/0.11.0/amazon.lambda.testtool/0.11.0/content/Amazon.Lambda.RuntimeSupport/net8.0/Amazon.Lambda.RuntimeSupport.dll Afg.TestAws.Receiver::Afg.TestAws.Receiver.Function::FunctionHandler",
+      "workingDirectory": "./bin/$(Configuration)/net8.0"
+    }
+  }
+}
