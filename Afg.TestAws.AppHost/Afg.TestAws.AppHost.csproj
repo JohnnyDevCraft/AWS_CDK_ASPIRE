@@ -19,6 +19,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\Afg.TestAws.AspireConstants\Afg.TestAws.AspireConstants.csproj" IsAspireProjectResource="false"/>
+      <ProjectReference Include="..\Afg.TestAws.LocalStackConfigurator\Afg.TestAws.LocalStackConfigurator.csproj" />
       <ProjectReference Include="..\Afg.TestAws.Reciever\src\Afg.TestAws.Reciever\Afg.TestAws.Reciever.csproj" />
       <ProjectReference Include="..\Afg.TestAws.Sender\src\Afg.TestAws.Sender\Afg.TestAws.Sender.csproj" />
     </ItemGroup>

@@ -21,8 +21,29 @@ public static class Resources
         public const string FunctionName = "ReceiverFunction";
         public const string Handler = "Afg.TestAws.Receiver::Afg.TestAws.Receiver.Function::FunctionHandler";
     }
+    
+    public static class LocalStackConfigurator
+    {
+        public const string Name = "LocalStackConfigurator";
+    }
 
-    public const string Cdk = "Cdk";
+    public static class AwsCdk
+    {
+        public const string Name = "Cdk";
+        public const string StackName = "AwsCdkStack";
+
+        public static class AccessKey
+        {
+            public const string Label = "AWS_ACCESS_KEY_ID";
+            public const string Value = "test";
+        }
+
+        public static class SecretKey
+        {
+            public const string Label = "AWS_SECRET_ACCESS_KEY";
+            public const string Value = "test";
+        }
+    }
 
     public const string TestQueue = "TestQueue";
     public const string TestTopic = "TestTopic";

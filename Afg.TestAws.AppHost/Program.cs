@@ -2,6 +2,7 @@ using Afg.TestAws.AppHost;
 using Afg.TestAws.AspireConstants;
 using Amazon.CDK;
 using Amazon.CDK.AWS.SQS;
+using Environment = System.Environment;
 
 var builder = DistributedApplication.CreateBuilder(args);
 
@@ -13,12 +14,17 @@ var localStack = builder.AddContainer(Resources.LocalStack, LocalStackConfig.Ima
     .WithHttpEndpoint(4566, 4566)
     .WithHttpHealthCheck("/_localstack/health");// Enable debug logging
 
-var lsConfig = builder.ConfigureLocalStack().WaitFor(localStack);
+var lsConfig = builder.AddProject<Projects.Afg_TestAws_LocalStackConfigurator>(Resources.LocalStackConfigurator.Name)
+    .WaitFor(localStack);
+
+Environment.SetEnvironmentVariable(Resources.AwsCdk.AccessKey.Label, Resources.AwsCdk.AccessKey.Value);
+Environment.SetEnvironmentVariable(Resources.AwsCdk.SecretKey.Label, Resources.AwsCdk.SecretKey.Value);
+Environment.SetEnvironmentVariable("AWS_SESSION_TOKEN", string.Empty);
 
 var awsConfig = builder.AddAWSSDKConfig()
     .WithRegion(Amazon.RegionEndpoint.USEast1);
 
-var cdk = builder.AddAWSCDKStack(Resources.Cdk)
+var cdk = builder.AddAWSCDKStack(Resources.AwsCdk.StackName)
     .WaitFor(localStack)
     .WaitForCompletion(lsConfig);
 

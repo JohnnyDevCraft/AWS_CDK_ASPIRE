@@ -25,7 +25,7 @@ public static class LocalStackConfig
     public static class Services
     {
         public const string Label = "SERVICES";
-        public const string Value = "sns,sqs,lambda,cloudformation,sts,ssm,dynamodb,apigateway,events";
+        public const string Value = "sns,sqs,lambda,cloudformation,sts,ssm,dynamodb,apigateway,events,iam";
     }
     
 }
